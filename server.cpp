@@ -12,7 +12,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <string.h>
+#include <cstring>
 #include <stdlib.h>
 #include <signal.h>
 #include <pthread.h>
@@ -39,14 +39,13 @@ static void *thread_cq(void *);
 void raspunde(void *);
 __thread int este_logat = 0;
 pthread_mutex_t lock;
+pthread_rwlock_t rwlock;
 
 int main()
 {
     struct sockaddr_in server; // structura folosita de server
     struct sockaddr_in from;
-    int nr; // mesajul primit de trimis la client
     int sd; // descriptorul de socket
-    int pid;
     pthread_t th[100]; // Identificatorii thread-urilor care se vor crea
     int i = 0;
 
@@ -87,9 +86,12 @@ int main()
     }
     /* servim in mod concurent clientii...folosind thread-uri */
 
-    pthread_t tid;
+    pthread_t tid1,tid2;
     pthread_mutex_init(&lock, NULL);
-    pthread_create(&tid, NULL, &thread_cq, NULL);
+    pthread_rwlock_init(&rwlock, NULL);
+
+    pthread_create(&tid1, NULL, &thread_cq, NULL);
+    pthread_create(&tid2, NULL, &thread_cq, NULL);
 
     while (1)
     {
@@ -137,7 +139,7 @@ void logout();
 char msg[100000], buf[100], ch, text[20], username[10], parola[10], id[10];
 int intarziere;
 
-static void *thread_cq(void *arg)
+static void *thread_cq(void*)
 {
     pthread_detach(pthread_self());
 
@@ -168,7 +170,10 @@ static void *thread_cq(void *arg)
             {
                 time_t now = time(NULL);
                 struct tm *t = localtime(&now);
-                status_plecari("trenuri.xml", msg, t->tm_hour, t->tm_min);
+
+                pthread_rwlock_rdlock(&rwlock);
+                status_plecari((char *)"trenuri.xml", msg, t->tm_hour, t->tm_min);
+                pthread_rwlock_unlock(&rwlock);
             }
             else
                 sprintf(msg, "Trebuie sa va logati mai intai!\n");
@@ -179,7 +184,10 @@ static void *thread_cq(void *arg)
             {
                 time_t now = time(NULL);
                 struct tm *t = localtime(&now);
-                status_sosiri("trenuri.xml", msg, t->tm_hour, t->tm_min);
+
+                pthread_rwlock_rdlock(&rwlock);
+                status_sosiri((char *)"trenuri.xml", msg, t->tm_hour, t->tm_min);
+                pthread_rwlock_unlock(&rwlock);
             }
             else
                 sprintf(msg, "Trebuie sa va logati mai intai!\n");
@@ -187,18 +195,23 @@ static void *thread_cq(void *arg)
         else if (strcmp(c.comanda, "mersul_trenurilor") == 0)
         {
             if (c.este_logat)
-                mersul_trenurilor("trenuri.xml", msg);
+            {
+                pthread_rwlock_rdlock(&rwlock);
+                mersul_trenurilor((char *)"trenuri.xml", msg);
+                pthread_rwlock_unlock(&rwlock);
+            }
             else
                 sprintf(msg, "Trebuie sa va logati mai intai!\n");
         }
-        else if (strcmp(c.comanda, "logout") == 0)
-            logout();
         else if (strncmp(c.comanda, "update_plecare", strlen("update_plecare")) == 0)
         {
             if (c.este_logat)
             {
                 sscanf(c.comanda, "%s %s %d", text, id, &intarziere);
-                update_plecare("trenuri.xml", msg, id, intarziere);
+
+                pthread_rwlock_wrlock(&rwlock);
+                update_plecare((char *)"trenuri.xml", msg, id, intarziere);
+                pthread_rwlock_unlock(&rwlock);
             }
             else
                 sprintf(msg, "Trebuie sa va logati mai intai!\n");
@@ -208,7 +221,10 @@ static void *thread_cq(void *arg)
             if (c.este_logat)
             {
                 sscanf(c.comanda, "%s %s %d", text, id, &intarziere);
-                update_sosire("trenuri.xml", msg, id, intarziere);
+
+                pthread_rwlock_wrlock(&rwlock);
+                update_sosire((char *)"trenuri.xml", msg, id, intarziere);
+                pthread_rwlock_unlock(&rwlock);
             }
             else
                 sprintf(msg, "Trebuie sa va logati mai intai!\n");
@@ -295,7 +311,7 @@ int comanda_valida(char buf[])
 
 void raspunde(void *arg)
 {
-    int bytes, i;
+    int bytes;
     struct thData *tdL = (struct thData *)arg;
     while (1)
     {
@@ -401,22 +417,16 @@ void raspunde(void *arg)
 
 void login_comanda(char username[], char parola[])
 {
-    // pthread_mutex_lock(&lock);
     if (este_logat)
     {
         sprintf(msg, "Sunteti deja logat!\n");
-        // pthread_mutex_unlock(&lock);
         return;
     }
-    // pthread_mutex_unlock(&lock);
-    //  printf("%s %s",username,parola);
-    int x = login("log.xml", username, parola);
+    int x = login((char *)"log.xml", username, parola);
     if (x == 1)
     {
-        // pthread_mutex_lock(&lock);
         sprintf(msg, "V-ati logat cu succes!\n");
         este_logat = 1;
-        // pthread_mutex_unlock(&lock);
     }
     else
         sprintf(msg, "Username sau parola incorecte!\n");
@@ -424,7 +434,6 @@ void login_comanda(char username[], char parola[])
 
 void logout()
 {
-    // pthread_mutex_lock(&lock);
     if (este_logat)
     {
         este_logat = 0;
@@ -432,7 +441,6 @@ void logout()
     }
     else
         sprintf(msg, "Nu sunteti logat!\n");
-    // pthread_mutex_unlock(&lock);
 }
 
 /* returnam mesajul clientului */

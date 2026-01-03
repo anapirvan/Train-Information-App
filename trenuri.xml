@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MersulTrenurilor>
+
+    <Tren id="1821">
+        <Plecare>Bucuresti Nord</Plecare>
+        <Destinatie>Timisoara Nord</Destinatie>
+        <OraPlecare>00:50</OraPlecare>
+        <OraSosire>08:35</OraSosire>
+        <IntarzierePlecare>3</IntarzierePlecare>
+        <IntarziereSosire>-10</IntarziereSosire>
+    </Tren>
+    
+    <Tren id="1372">
+        <Plecare>Iasi</Plecare>
+        <Destinatie>Cluj-Napoca</Destinatie>
+        <OraPlecare>01:15</OraPlecare>
+        <OraSosire>11:25</OraSosire>
+        <IntarzierePlecare>15</IntarzierePlecare>
+        <IntarziereSosire>10</IntarziereSosire>
+    </Tren>
+
+    <Tren id="1723">
+        <Plecare>Cluj Napoca</Plecare>
+        <Destinatie>Bucuresti Nord</Destinatie>
+        <OraPlecare>02:12</OraPlecare>
+        <OraSosire>10:34</OraSosire>
+        <IntarzierePlecare>0</IntarzierePlecare>
+        <IntarziereSosire>5</IntarziereSosire>
+    </Tren>
+
+    <Tren id="1954">
+        <Plecare>Iasi</Plecare>
+        <Destinatie>Brasov</Destinatie>
+        <OraPlecare>03:46</OraPlecare>
+        <OraSosire>10:22</OraSosire>
+        <IntarzierePlecare>10</IntarzierePlecare>
+        <IntarziereSosire>15</IntarziereSosire>
+    </Tren>
+
+<Tren id="1407">
+    <Plecare>Constanta</Plecare>
+    <Destinatie>Bucuresti Nord</Destinatie>
+    <OraPlecare>04:00</OraPlecare>
+    <OraSosire>06:23</OraSosire>
+    <IntarzierePlecare>-2</IntarzierePlecare>
+    <IntarziereSosire>0</IntarziereSosire>
+</Tren>
+
+<Tren id="2209">
+    <Plecare>Sibiu</Plecare>
+    <Destinatie>Arad</Destinatie>
+    <OraPlecare>05:19</OraPlecare>
+    <OraSosire>09:48</OraSosire>
+    <IntarzierePlecare>5</IntarzierePlecare>
+    <IntarziereSosire>8</IntarziereSosire>
+</Tren>
+
+<Tren id="3011">
+    <Plecare>Craiova</Plecare>
+    <Destinatie>Timisoara Nord</Destinatie>
+    <OraPlecare>06:50</OraPlecare>
+    <OraSosire>12:39</OraSosire>
+    <IntarzierePlecare>0</IntarzierePlecare>
+    <IntarziereSosire>-5</IntarziereSosire>
+</Tren>
+
+<Tren id="4105">
+    <Plecare>Galati</Plecare>
+    <Destinatie>Iasi</Destinatie>
+    <OraPlecare>07:57</OraPlecare>
+    <OraSosire>10:19</OraSosire>
+    <IntarzierePlecare>7</IntarzierePlecare>
+    <IntarziereSosire>10</IntarziereSosire>
+</Tren>
+
+<Tren id="5120">
+    <Plecare>Oradea</Plecare>
+    <Destinatie>Cluj Napoca</Destinatie>
+    <OraPlecare>08:35</OraPlecare>
+    <OraSosire>11:22</OraSosire>
+    <IntarzierePlecare>0</IntarzierePlecare>
+    <IntarziereSosire>3</IntarziereSosire>
+</Tren>
+
+<Tren id="6784">
+    <Plecare>Bacau</Plecare>
+    <Destinatie>Bucuresti Nord</Destinatie>
+    <OraPlecare>09:48</OraPlecare>
+    <OraSosire>14:12</OraSosire>
+    <IntarzierePlecare>8</IntarzierePlecare>
+    <IntarziereSosire>-10</IntarziereSosire>
+</Tren>
+
+<Tren id="7342">
+    <Plecare>Brasov</Plecare>
+    <Destinatie>Sighisoara</Destinatie>
+    <OraPlecare>10:27</OraPlecare>
+    <OraSosire>15:05</OraSosire>
+    <IntarzierePlecare>7</IntarzierePlecare>
+    <IntarziereSosire>-3</IntarziereSosire>
+</Tren>
+
+<Tren id="8451">
+    <Plecare>Ploiesti Sud</Plecare>
+    <Destinatie>Buzau</Destinatie>
+    <OraPlecare>11:10</OraPlecare>
+    <OraSosire>12:40</OraSosire>
+    <IntarzierePlecare>2</IntarzierePlecare>
+    <IntarziereSosire>5</IntarziereSosire>
+</Tren>
+
+<Tren id="9067">
+    <Plecare>Arad</Plecare>
+    <Destinatie>Deva</Destinatie>
+    <OraPlecare>12:24</OraPlecare>
+    <OraSosire>15:11</OraSosire>
+    <IntarzierePlecare>0</IntarzierePlecare>
+    <IntarziereSosire>-3</IntarziereSosire>
+</Tren>
+
+<Tren id="1103">
+    <Plecare>Targu Mures</Plecare>
+    <Destinatie>Cluj Napoca</Destinatie>
+    <OraPlecare>13:31</OraPlecare>
+    <OraSosire>16:16</OraSosire>
+    <IntarzierePlecare>4</IntarzierePlecare>
+    <IntarziereSosire>10</IntarziereSosire>
+</Tren>
+
+<Tren id="1248">
+    <Plecare>Baia Mare</Plecare>
+    <Destinatie>Cluj Napoca</Destinatie>
+    <OraPlecare>14:17</OraPlecare>
+    <OraSosire>18:36</OraSosire>
+    <IntarzierePlecare>4</IntarzierePlecare>
+    <IntarziereSosire>6</IntarziereSosire>
+</Tren>
+
+<Tren id="2379">
+    <Plecare>Botosani</Plecare>
+    <Destinatie>Iasi</Destinatie>
+    <OraPlecare>15:27</OraPlecare>
+    <OraSosire>19:18</OraSosire>
+    <IntarzierePlecare>0</IntarzierePlecare>
+    <IntarziereSosire>-2</IntarziereSosire>
+</Tren>
+
+<Tren id="3590">
+    <Plecare>Focsani</Plecare>
+    <Destinatie>Braila</Destinatie>
+    <OraPlecare>16:19</OraPlecare>
+    <OraSosire>18:31</OraSosire>
+    <IntarzierePlecare>12</IntarzierePlecare>
+    <IntarziereSosire>5</IntarziereSosire>
+</Tren>
+
+<Tren id="4682">
+    <Plecare>Petrosani</Plecare>
+    <Destinatie>Craiova</Destinatie>
+    <OraPlecare>17:33</OraPlecare>
+    <OraSosire>21:38</OraSosire>
+    <IntarzierePlecare>7</IntarzierePlecare>
+    <IntarziereSosire>12</IntarziereSosire>
+</Tren>
+
+<Tren id="5721">
+    <Plecare>Resita Nord</Plecare>
+    <Destinatie>Timisoara Nord</Destinatie>
+    <OraPlecare>18:42</OraPlecare>
+    <OraSosire>21:43</OraSosire>
+    <IntarzierePlecare>-1</IntarzierePlecare>
+    <IntarziereSosire>0</IntarziereSosire>
+</Tren>
+
+<Tren id="6845">
+    <Plecare>Slatina</Plecare>
+    <Destinatie>Bucuresti Nord</Destinatie>
+    <OraPlecare>19:44</OraPlecare>
+    <OraSosire>22:47</OraSosire>
+    <IntarzierePlecare>5</IntarzierePlecare>
+    <IntarziereSosire>12</IntarziereSosire>
+</Tren>
+
+<Tren id="7912">
+    <Plecare>Hunedoara</Plecare>
+    <Destinatie>Alba Iulia</Destinatie>
+    <OraPlecare>20:49</OraPlecare>
+    <OraSosire>22:51</OraSosire>
+    <IntarzierePlecare>2</IntarzierePlecare>
+    <IntarziereSosire>4</IntarziereSosire>
+</Tren>
+
+<Tren id="8459">
+    <Plecare>Ramnicu Valcea</Plecare>
+    <Destinatie>Sibiu</Destinatie>
+    <OraPlecare>21:52</OraPlecare>
+    <OraSosire>00:53</OraSosire>
+    <IntarzierePlecare>15</IntarzierePlecare>
+    <IntarziereSosire>-5</IntarziereSosire>
+</Tren>
+
+<Tren id="9034">
+    <Plecare>Vaslui</Plecare>
+    <Destinatie>Bacau</Destinatie>
+    <OraPlecare>22:54</OraPlecare>
+    <OraSosire>00:56</OraSosire>
+    <IntarzierePlecare>6</IntarzierePlecare>
+    <IntarziereSosire>9</IntarziereSosire>
+</Tren>
+
+<Tren id="9981">
+    <Plecare>Giurgiu</Plecare>
+    <Destinatie>Bucuresti Nord</Destinatie>
+    <OraPlecare>23:30</OraPlecare>
+    <OraSosire>01:00</OraSosire>
+    <IntarzierePlecare>1</IntarzierePlecare>
+    <IntarziereSosire>3</IntarziereSosire>
+</Tren>
+
+    
+</MersulTrenurilor>

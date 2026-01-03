@@ -27,3 +27,4 @@ update_plecare id delay – updates the departure delay of a train in the XML fi
 update_sosire id delay – updates the arrival delay of a train in the XML file (user must be logged in).
 
 The server is multithreaded and also has two workers that process commands from the queue using mutexes to ensure thread-safe access.
+The project uses libxml2 for parsing XML files (log.xml and trenuri.xml).

@@ -10,7 +10,7 @@ trenuri.xml – contains all information about the trains, including their IDs, 
 
 The app implements the following commands:
 
-login <username> <password> – logs in a user.
+login username password – logs in a user.
 
 logout – logs out the current user.
 
@@ -22,8 +22,8 @@ status_plecari – shows information about trains departing in the next hour (us
 
 status_sosiri – shows information about trains arriving in the next hour (user must be logged in).
 
-update_plecare <id> <delay> – updates the departure delay of a train in the XML file (user must be logged in).
+update_plecare id delay – updates the departure delay of a train in the XML file (user must be logged in).
 
-update_sosire <id> <delay> – updates the arrival delay of a train in the XML file (user must be logged in).
+update_sosire id delay – updates the arrival delay of a train in the XML file (user must be logged in).
 
 The server is multithreaded and also has two workers that process commands from the queue using mutexes to ensure thread-safe access.
